@@ -1,7 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ include file="/WEB-INF/page/share/taglib.jsp" %>
-<html>
-<link rel="stylesheet" href="/css/vip.css" type="text/css">
+<%@ include file="/WEB-INF/admin/common/head.jsp"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <body>
 <div align="center">
 <table>

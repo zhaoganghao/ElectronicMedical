@@ -13,5 +13,10 @@
 		form.page.value=page;
 		form.submit();
 	}
+	function querySubmit(){
+		var form = document.forms[0];
+		form.query.value="true";
+		form.submit();
+	}
 </script>
 </head>

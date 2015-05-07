@@ -11,14 +11,23 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
 	 <constant name="struts.objectFactory" value="spring" />
-	
-	 <package name="admin" namespace="/control" extends="struts-default">
-		
+	<package name="ElectronicMedical" extends="struts-default">
+	 
+		<global-results>
+    		<result name="error">/WEB-INF/admin/common/error.jsp</result>
+    	</global-results>
+    	
+		 <global-exception-mappings>
+    		<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+    	</global-exception-mappings>
+	</package>
+	 <package name="admin" namespace="/control" extends="ElectronicMedical">
 	 	<action name="user_*" class="userAction" method="{1}">
 	 		<result name="list">/WEB-INF/admin/user/list.jsp</result>
 			<result name="addUI">/WEB-INF/admin/user/addUI.jsp</result>
-			<result name="add">/WEB-INF/admin/employeeAdd.jsp</result>
+			<result name="editUI">/WEB-INF/admin/user/edit.jsp</result>
 			<result name="tolist" type="redirectAction">user_list</result>
+			<result name="toeditUI" type="redirectAction">editUI?id=${id}</result>
 	 	</action>
 	 	
 	 	<action name="client_*" class="clientAction" method="{1}">
@@ -26,5 +35,7 @@
 		</action>
 		
 	 </package>
-	 
+	 <package name="web" namespace="/" extends="ElectronicMedical">
+		
+	 </package>
 </struts>

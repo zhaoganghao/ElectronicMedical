@@ -1,69 +1,87 @@
+<%@ include file="/WEB-INF/admin/common/head.jsp"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ include file="/WEB-INF/admin/common/taglib.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>修改用户</title>
-<style type="text/css">
-<!--
-.STYLE2 {
-	font-size: 24
-}
--->
-</style>
-<script language="JavaScript">
-	function tosubmit(form) {
-	if (form.username.value==""){
-		alert("用户名不能为空！");
-		form.username.focus();
-		return false;
-	}
-	if (form.password.value==""){
-		alert("密码不能为空！");
-		form.password.focus();
-		return false;
-	}
-	return true;
-	}
-</script>
-</head>
-
 <body>
-	<html:form action="/control/user/manage" method="post" onsubmit="return tosubmit(this)">
-	<html:hidden property="method" value="edit"/>
-	<html:hidden property="id" />
-		<table width="98%" border="0" cellspacing="1" cellpadding="3" align="center">
-    <tr bgcolor="6f8ac4"> 
-      <td colspan="2" ><font color="#FFFFFF">修改用户：</font></td>
-    </tr>
-    <tr bgcolor="f5f5f5"> 
-      <td width="25%"> <div align="right">用户名  ：</div></td>
-      <td width="75%"><html:text property="username" size="30" maxlength="30" /><font color="#FF0000">*</font>
-							</td>
-    </tr>
-    <tr bgcolor="f5f5f5"> 
-      <td width="25%"> <div align="right">密码  ：</div></td>
-      <td width="75%"><html:password property="password" size="30" maxlength="30" /><font color="#FF0000">*</font>
-							</td>
-    </tr>
-    <tr bgcolor="f5f5f5"> 
-      <td width="25%"> <div align="right">email：</div></td>
-      <td width="75%"><html:text property="email" size="30" maxlength="30" />
-							</td>
-    </tr>
-    <tr bgcolor="f5f5f5"> 
-      <td width="25%"> <div align="right">电话：</div></td>
-      <td width="75%"><html:text property="phone" size="30" maxlength="30" />
-							</td>
-    </tr>
-    <tr bgcolor="f5f5f5"> 
-      <td colspan="2"> <div align="center"> 
-          <input type="submit" name="Add" value=" 确 认 " class="frm_btn" onClick="javascript:SureSubmit(this.form)">
-          &nbsp;&nbsp;<input type="button" name="Button" value=" 返 回 " class="frm_btn" onclick="javascript:history.back()">
-        </div></td>
-    </tr>
-  </table>
-	</html:form>
+	<div class="content" >
+	<s:debug></s:debug>
+	<s:form action="/control/user_edit.action" method="post" >
+    <table  class="pure-table pure-table-bordered" align="center"style="width:100%;">
+        <tbody>
+            <tr bgcolor="6f8ac4" >
+                <td colspan="2">用户信息</td>
+            </tr>
+            <tr >
+                <td width="10%" >用户ID</td>
+                <td> <input type="hidden" name="id" value="${id}" />${user.id} </td>
+            </tr>
+             <tr >
+                <td>用户名</td>
+                <td><s:textfield type="text" name="username" /></td>
+            </tr>
+            <tr >
+                <td>email</td>
+                <td><s:textfield type="text" name="email"/></td>
+            </tr>
+            <tr >
+                <td>手机号</td>
+                <td><s:textfield type="text" name="phone" /></td>
+            </tr>
+             <tr >
+                <td>角色</td>
+                <td>
+                	<s:select list="roles" listKey="index"  name="role" listValue="name"></s:select>
+                </td>
+            </tr>
+            <tr >
+                <td>注册时间</td>
+                <td><s:textfield type="text" name="ctime" readonly="true" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <table  class="pure-table pure-table-bordered" align="center"style="width:100%;">
+        <tbody>
+            <tr  bgcolor="6f8ac4">
+                <td colspan="2">用户身份信息</td>
+            </tr>
+            <tr >
+                <td width="10%" >真实姓名</td>
+                <td><s:textfield type="text" name="identity.name" /></td>
+            </tr>
+            <tr >
+                <td>地址</td>
+                <td><s:textfield type="text" name="identity.address" /></td>
+            </tr>
+            <tr >
+                <td>性别</td>
+                <td>
+                <s:select list="genders" listKey="index"  name="identity.gender" listValue="name"></s:select>
+                </td>
+            </tr>
+             <tr >
+                <td>身份证</td>
+                <td><s:textfield type="text" name="identity.ic_image" /></td>
+            </tr>
+             <tr >
+                <td>身份证号码</td>
+                <td><s:textfield type="text" name="identity.NRIC_FIN" /></td>
+            </tr>
+            <tr >
+                <td>医生资格证书</td>
+                <td><s:textfield type="text" name="identity.docter_licence_image" /></td>
+            </tr>
+             <tr >
+                <td>资格证书时间</td>
+                <td><s:textfield type="text" name="identity.license_pass_date" /></td>
+            </tr>
+             <tr>
+                <td>医生资格过期时间</td>
+                <td ><s:textfield type="text" name="identity.license_expired_date" /></td>
+            </tr>
+            <tr>
+            	<td colspan="2"><input type="submit" class="button" value="保存" /></td>
+        	</tr>
+        </tbody>
+    </table>
+</s:form> 
+	</div>
 </body>
 </html>

@@ -8,9 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,10 +34,11 @@ public class User implements Serializable{
 	private String phone;
 	/** 注册时间 **/
 	@Temporal(TemporalType.DATE)
-	private Date regtime = new Date();
-	/** 用户类型 1-->管理员，2--->普通用户**/	
-	private Integer role;
-	
+	private Date ctime = new Date();
+	@Enumerated(EnumType.STRING)
+	private Role role = Role.newuser;
+	@OneToOne(mappedBy="user",cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+	private Identity identity;
 	public User(){
 	}
 	public User(String username, String password){
@@ -83,19 +84,19 @@ public class User implements Serializable{
 		this.phone = phone;
 	}
 	
-	public Date getRegtime() {
-		return regtime;
+	public Date getCtime() {
+		return ctime;
 	}
-	public void setRegtime(Date regtime) {
-		this.regtime = regtime;
+	public void setCtime(Date ctime) {
+		this.ctime = ctime;
 	}
-	
-	public Integer getRole() {
+	public Role getRole() {
 		return role;
 	}
-	public void setRole(Integer role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -118,6 +119,12 @@ public class User implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	public Identity getIdentity() {
+		return identity;
+	}
+	public void setIdentity(Identity identity) {
+		this.identity = identity;
 	}
 	
 }

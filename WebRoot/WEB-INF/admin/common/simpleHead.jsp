@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/page/share/taglib.jsp" %>
+<%@ include file="/WEB-INF/admin/common/head.jsp"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <div id="Head">
   <div id="HeadTop">
     <div id="Logo"><a href="http://www.babasport.com/" target=_top><img alt="中国最大、最安全的户外用品、体育用品网上交易平台！" src="/images/global/logo.gif" border=0 /></a> </div>

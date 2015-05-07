@@ -21,7 +21,12 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	private int page;
 	/** 设置是否进行查找 **/
 	private String query;
-	
+	protected T model;
+	@Resource
+	protected UserService userService;
+	public T getModel() {		
+		return model;
+	}
 	public int getPage() {
 		return page<1? 1 : page;
 	}
@@ -37,14 +42,6 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	public void setQuery(String query) {
 		this.query = query;
 	}
-
-	protected T model;
-	@Resource
-	protected UserService userService;
-	public T getModel() {		
-		return model;
-	}
-	
 	public User getUser(){
 		return (User)ActionContext.getContext().getSession().get("user");
 	}
