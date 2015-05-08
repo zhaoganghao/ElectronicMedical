@@ -2,7 +2,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <body>
 	<div class="pure-menu pure-menu-open">
-	<s:actionerror/>
+	异常抛出<s:debug/>
 	</div>
 </body>
 </html>

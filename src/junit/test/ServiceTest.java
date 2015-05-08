@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import cn.emedical.bean.Identity;
 import cn.emedical.bean.User;
 import cn.emedical.service.UserService;
 
@@ -16,11 +17,17 @@ public class ServiceTest {
 	public void test() {
 		ApplicationContext c=new ClassPathXmlApplicationContext("beans.xml");
 		UserService s=(UserService) c.getBean("userServiceImpl");
-		User user = new User("zhaogang", "1123");
+		User user = new User("zhaogang3", "1123");
+		user.setIdentity(new Identity("123","23","345"));
 		s.save(user);
 	}
 	@Test
 	public void test2() {
+		ApplicationContext c=new ClassPathXmlApplicationContext("beans.xml");
+		UserService s=(UserService) c.getBean("userServiceImpl");
+		User user = s.find(5);
+		
+		System.out.print(user.getIdentity());
 	}
 
 }

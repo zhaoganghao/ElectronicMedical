@@ -1,49 +1,5 @@
+<%@ include file="/WEB-INF/admin/common/head.jsp"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ include file="/WEB-INF/admin/common/taglib.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>添加用户</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/pure-min.css">
-	<style type="text/css">
-body {
-	font-size: 14px;
-	font-family: arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体',
-		\5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti;
-}
-
-.content {
-	margin: 10px auto;
-	margin-left: 20px;
-	font-family: inherit;
-}
-</style>
-<style type="text/css">
-<!--
-.STYLE2 {
-	font-size: 24
-}
--->
-</style>
-<script language="JavaScript">
-	function tosubmit(form) {
-	if (form.username.value==""){
-		alert("用户名不能为空！");
-		form.username.focus();
-		return false;
-	}
-	if (form.password.value==""){
-		alert("密码不能为空！");
-		form.password.focus();
-		return false;
-	}
-	return true;
-	}
-</script>
-</head>
-
 <body>
 	<s:form action="/control/user_add.action" method="post" >
 	<s:hidden name="method" value="add"/>
@@ -53,22 +9,36 @@ body {
     </tr>
     <tr bgcolor="f5f5f5"> 
       <td width="25%"> <div align="right">用户名  ：</div></td>
-      <td width="75%"><s:textfield type="text" name="username" class="InputStyle"/>*</font>
+      <td width="75%"><s:textfield type="text" name="user.username" class="InputStyle"/>*</font>
 							</td>
     </tr>
     <tr bgcolor="f5f5f5"> 
       <td width="25%"> <div align="right">密码  ：</div></td>
-      <td width="75%"><s:password type="text" name="password" class="InputStyle"/>*</font>
+      <td width="75%"><s:password type="text" name="user.password" class="InputStyle"/>*</font>
 							</td>
     </tr>
     <tr bgcolor="f5f5f5"> 
       <td width="25%"> <div align="right">email：</div></td>
-      <td width="75%"><s:textfield type="text" name="email" class="InputStyle"/>
+      <td width="75%"><s:textfield type="text" name="user.email" class="InputStyle"/>
 							</td>
     </tr>
     <tr bgcolor="f5f5f5"> 
       <td width="25%"> <div align="right">电话：</div></td>
-      <td width="75%"><s:textfield type="text" name="phone" class="InputStyle"/>
+      <td width="75%"><s:textfield type="text" name="user.phone" class="InputStyle"/>
+							</td>
+    </tr>
+    <tr bgcolor="f5f5f5"> 
+      <td width="25%"> <div align="right">角色：</div></td>
+      <td width="75%">
+      
+		 <select name="user.role" >
+		    <option value="newuser" >newuser</option>
+		    <option value="pending" >pending</option>
+		    <option value="rejected" >rejected</option>
+		    <option value="doctor"  >doctor</option>
+		    <option value="patient" >patient</option>
+		    <option value="admin"  >admin</option>
+		</select>
 							</td>
     </tr>
     <tr bgcolor="f5f5f5"> 

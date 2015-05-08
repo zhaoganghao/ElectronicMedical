@@ -10,19 +10,38 @@ import org.springframework.stereotype.Controller;
 
 import cn.emedical.base.BaseAction;
 import cn.emedical.base.bean.PageView;
-import cn.emedical.bean.Gender;
 import cn.emedical.bean.Identity;
-import cn.emedical.bean.Role;
 import cn.emedical.bean.User;
 
 import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
-public class UserAction extends BaseAction<User> {
+public class UserAction extends BaseAction {
+	private User user;
+	private Identity identity;
+	private String check;
 	
+	public String getCheck() {
+		return check;
+	}
+	public void setCheck(String check) {
+		this.check = check;
+	}
+	public Identity getIdentity() {
+		return identity;
+	}
+	public void setIdentity(Identity identity) {
+		this.identity = identity;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String add(){
-		userService.save(this.getModel());
+		userService.save(user);
 		return "tolist";
 	}
 	public String addUI(){
@@ -30,49 +49,50 @@ public class UserAction extends BaseAction<User> {
 	}
 	
 	public String delete(){
-		userService.delete(this.getModel().getId());
+		userService.delete(user.getId());
 		return "tolist";
 	}
 	public String editUI(){
-		User user = userService.find(this.getModel().getId());
-		ActionContext.getContext().getValueStack().push(user);
-		ActionContext.getContext().put("genders", Gender.values());
-		ActionContext.getContext().put("roles", Role.values());
+		user = userService.find(this.user.getId());
 		return "editUI";
 	}
 	public String edit(){
-		User user = userService.find(this.getModel().getId());
-		User copy = this.getModel();
-		if(copy.getUsername() != null && !"".equals(copy.getUsername().trim())){
-			user.setUsername(copy.getUsername());
+		User copy = userService.find(this.user.getId());
+		if(user.getUsername() != null && !"".equals(user.getUsername().trim())){
+			copy.setUsername(user.getUsername());
 		}
-		user.setPhone(copy.getPhone());
-		user.setEmail(copy.getEmail());
-		user.setRole(copy.getRole());
-		Identity identity = user.getIdentity();
-		if(identity == null){
-			identity = new Identity();
-			user.setIdentity(identity);
-		}
-		user.getIdentity().setAddress(copy.getIdentity().getAddress());
-		user.getIdentity().setName(copy.getIdentity().getName());
-		user.getIdentity().setLicense_pass_date(copy.getIdentity().getLicense_pass_date());
-		user.getIdentity().setLicense_expired_date(copy.getIdentity().getLicense_expired_date());
-		userService.update(user);
+		copy.setPhone(user.getPhone());
+		copy.setEmail(user.getEmail());
+		copy.setRole(user.getRole());
+		copy.setIdentity(identity);
+		userService.update(copy);
 		return "toeditUI";
 	}
 	public String list(){
 		StringBuffer jpql = new StringBuffer();
 		List<Object> params = new ArrayList<Object>();
-		User user = this.getModel();
 		PageView<User> pageView = new PageView<User>(2, this.getPage());
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put("ctime", "desc");
+		if(this.check !=null && this.check.equals("true")){
+			jpql.append("o.role = ?");
+			params.add("pending");
+		}
 		if ("true".equals(this.getQuery())) {
 			if (user.getUsername() != null && !"".equals(user.getUsername().trim())) {
 				if (params.size() > 0) jpql.append(" and ");
 				jpql.append(" o.username like ?" + (params.size() + 1));
 				params.add("%" + user.getUsername() + "%");
+			}
+			if(user.getPhone() !=null && !"".equals(user.getPhone().trim())){
+				if (params.size() > 0) jpql.append(" and ");
+				jpql.append(" o.phone = ?" + (params.size() + 1));
+				params.add(user.getPhone().trim());
+			}
+			if( this.check ==null && user.getRole() !=null && !"".equals(user.getRole().trim())){
+				if (params.size() > 0) jpql.append(" and ");
+				jpql.append(" o.role = ?" + (params.size() + 1));
+				params.add(user.getRole());
 			}
 		}
 		pageView.setQueryResult(userService.getScrollData(pageView.getFirstResult(), 

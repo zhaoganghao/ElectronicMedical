@@ -22,10 +22,9 @@ public class Identity implements Serializable{
 	@Id@GeneratedValue
 	private Integer id;
 	private String address;
-	@Enumerated(EnumType.STRING)
-	private Gender gender;
+	private String gender;
 	@Column(length=64)
-	private String docter_licence_image;
+	private String doctor_licence_image;
 	@Column(length=64)
 	private String ic_image;
 	@Temporal(TemporalType.DATE)
@@ -36,11 +35,18 @@ public class Identity implements Serializable{
 	private String name;
 	@Column(length=18)
 	private String NRIC_FIN;
-	@OneToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
-	@JoinColumn(name="uid")
+	@OneToOne(mappedBy="identity",cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	private User user;
 	public Identity(){
 	}
+	
+	public Identity(String address, String gender, String name) {
+		super();
+		this.address = address;
+		this.gender = gender;
+		this.name = name;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -53,18 +59,22 @@ public class Identity implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Gender getGender() {
+	
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(Gender gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getDocter_licence_image() {
-		return docter_licence_image;
+	
+	public String getDoctor_licence_image() {
+		return doctor_licence_image;
 	}
-	public void setDocter_licence_image(String docter_licence_image) {
-		this.docter_licence_image = docter_licence_image;
+
+	public void setDoctor_licence_image(String doctor_licence_image) {
+		this.doctor_licence_image = doctor_licence_image;
 	}
+
 	public String getIc_image() {
 		return ic_image;
 	}

@@ -57,6 +57,19 @@
 						<TD></TD>
 					</TR>
 				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="user_list" namespace="/control"></s:url>?check=true'
+							target="main">审核认证</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
 				</TD>
 			<TD width=1 bgColor=#d1e6f7></TD>
 		</TR>

@@ -16,17 +16,13 @@ import com.opensymphony.xwork2.ModelDriven;
 
 @Controller
 @Scope("prototype")
-public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
+public class BaseAction extends ActionSupport{
 	/** 获取当前页 **/
 	private int page;
 	/** 设置是否进行查找 **/
 	private String query;
-	protected T model;
 	@Resource
 	protected UserService userService;
-	public T getModel() {		
-		return model;
-	}
 	public int getPage() {
 		return page<1? 1 : page;
 	}
@@ -41,19 +37,6 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 
 	public void setQuery(String query) {
 		this.query = query;
-	}
-	public User getUser(){
-		return (User)ActionContext.getContext().getSession().get("user");
-	}
-	
-	protected BaseAction(){
-		try {
-			ParameterizedType pt=(ParameterizedType)this.getClass().getGenericSuperclass();
-			Class<T> clazz=(Class<T>)pt.getActualTypeArguments()[0];
-			model=clazz.newInstance();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
 	}
 	
 }

@@ -11,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,10 +36,12 @@ public class User implements Serializable{
 	/** ×¢²áÊ±¼ä **/
 	@Temporal(TemporalType.DATE)
 	private Date ctime = new Date();
-	@Enumerated(EnumType.STRING)
-	private Role role = Role.newuser;
-	@OneToOne(mappedBy="user",cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+	private String role = "newuser";
+	@OneToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+	@JoinColumn(name="identity_id")
 	private Identity identity;
+	private String check_remark;
+	
 	public User(){
 	}
 	public User(String username, String password){
@@ -61,6 +64,13 @@ public class User implements Serializable{
 	}
 	public String getUsername() {
 		return username;
+	}
+	
+	public String getCheck_remark() {
+		return check_remark;
+	}
+	public void setCheck_remark(String check_remark) {
+		this.check_remark = check_remark;
 	}
 	public void setUsername(String username) {
 		this.username = username;
@@ -90,13 +100,13 @@ public class User implements Serializable{
 	public void setCtime(Date ctime) {
 		this.ctime = ctime;
 	}
-	public Role getRole() {
+	
+	public String getRole() {
 		return role;
 	}
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
