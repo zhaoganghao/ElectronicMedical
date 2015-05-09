@@ -13,7 +13,6 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="refreshModelBeforeResult" value="spring" />
 	<package name="ElectronicMedical" extends="struts-default">
-	 
 		<!-- <global-results>
     		<result name="error">/WEB-INF/admin/common/error.jsp</result>
     	</global-results>
@@ -29,13 +28,13 @@
 			<result name="tolist" type="redirectAction">user_list</result>
 			<result name="toeditUI" type="redirectAction">user_editUI?user.id=${user.id}</result>
 	 	</action>
-	 	
 	 	<action name="client_*" class="clientAction" method="{1}">
 			<result name="{1}">/WEB-INF/admin/controlcenter/{1}.jsp</result>
 		</action>
-		
 	 </package>
 	 <package name="web" namespace="/" extends="ElectronicMedical">
-		
+		<action name="index" class="indexAction" method="index">
+	 		<result name="index">/WEB-INF/web/index.jsp</result>
+	 	</action>
 	 </package>
 </struts>
