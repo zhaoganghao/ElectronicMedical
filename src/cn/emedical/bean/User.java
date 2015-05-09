@@ -41,7 +41,7 @@ public class User implements Serializable{
 	@JoinColumn(name="identity_id")
 	private Identity identity;
 	private String check_remark;
-	
+	private String avatar;
 	public User(){
 	}
 	public User(String username, String password){
@@ -58,6 +58,12 @@ public class User implements Serializable{
 	}
 	public Integer getId() {
 		return id;
+	}
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 	public void setId(Integer id) {
 		this.id = id;

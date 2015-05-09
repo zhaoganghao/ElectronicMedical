@@ -2,10 +2,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <script language="JavaScript">
  function checkForm(){
-		if($("#license_expired_date").val().trim()==""){
-			$("#license_expired_date").val("");
-		}
-		
 		if($("#license_pass_date").val().trim()==""){
 			$("#license_pass_date").val("");
 		}
@@ -28,8 +24,8 @@
                 </td>
             </tr>
             <tr >
-                <td width="10%" >用户ID</td>
-                <td> <input type="hidden" name="user.id" value="<s:property value="user.id"/>" /><s:property value="user.id"/>  </td>
+                <td width="10%" >用户头像</td>
+                <td> <input type="hidden" name="user.id" value="<s:property value="user.id"/>" /><img alt="" src='${pageContext.request.contextPath}${user.avatar}' height="100px" width="100px"/>  </td>
             </tr>
              <tr >
                 <td>用户名</td>
@@ -58,6 +54,7 @@
         </tbody>
     </table>
     <table  class="pure-table pure-table-bordered" align="center"style="width:100%;">
+        <input type="hidden" name="identity.id" value="<s:property value="user.identity.id"/>" />
         <tbody>
             <tr  bgcolor="6f8ac4">
                 <td colspan="2">用户身份信息</td>
@@ -65,14 +62,13 @@
             <tr >
                 <td width="10%" >真实姓名</td>
                 <td>
-                 <input type="hidden" name="identity.id" value="<s:property value="user.identity.id"/>" />
-                <input type="text" name="identity.name" value="<s:property value="user.identity.name"/>" />
+                 <s:property value="user.identity.name"/>
                 </td>
             </tr>
             <tr >
                 <td>地址</td>
                 <td>
-					<input type="text" name="identity.address" value="<s:property value="user.identity.address"/>" />
+				<s:property value="user.identity.address"/>
 				</td>
             </tr>
             <tr >
@@ -86,23 +82,52 @@
             </tr>
              <tr >
                 <td>身份证</td>
-                <td><input type="text" name="identity.ic_image" value="<s:property value="user.identity.ic_image"/>" /></td>
+                <td>
+                <img alt="" src='${pageContext.request.contextPath}${user.identity.ic_image}'/>
+                </td>
             </tr>
              <tr >
                 <td>身份证号码</td>
-                <td><input type="text" name="identity.NRIC_FIN" value="<s:property value="user.identity.NRIC_FIN"/>" /></td>
+                <td><s:property value="user.identity.NRIC_FIN"/></td>
             </tr>
             <tr >
                 <td>医生资格证书</td>
-                <td><input type="text" name="identity.doctor_licence_image" value="<s:property value="user.identity.doctor_licence_image" />" /></td>
+                <td>
+                <img alt="" src='${pageContext.request.contextPath}${user.identity.doctor_licence_image}'/>
+                </td>
             </tr>
              <tr >
                 <td>资格证书时间</td>
                 <td><input type="text" id="license_pass_date" class="biuuu"  name="identity.license_pass_date" value="<s:date name="user.identity.license_pass_date" format="yyyy-MM-dd"/> " /></td>
             </tr>
              <tr>
-                <td>医生资格过期时间</td>
-                <td ><input type="text" id="license_expired_date"  class="biuuu"  name="identity.license_expired_date" value="<s:date name="user.identity.license_expired_date" format="yyyy-MM-dd" /> " /></td>
+                <td>工作经验</td>
+                <td >
+                <s:property value="user.identity.experience_age"/></td>
+            </tr>
+             <tr>
+                <td>工作证明</td>
+                <td >
+               <img alt="" src='${pageContext.request.contextPath}${user.identity.experience_image}'/>
+               </td>
+            </tr>
+             <tr>
+                <td>学历</td>
+                <td >
+            <s:property value="user.identity.diploma"/> 
+               </td>
+            </tr>
+            <tr>
+                <td>毕业学校</td>
+                <td >
+            <s:property value="user.identity.diploma_school"/>
+               </td>
+            </tr>
+            <tr>
+                <td>毕业证书</td>
+                <td >
+               <img alt="" src='${pageContext.request.contextPath}${user.identity.academic_certificate_image}'/>
+               </td>
             </tr>
              <s:if test="user.role=='pending'">
 			<tr>
@@ -117,7 +142,7 @@
                 <td>认证备注</td>
                 <td >
 	               <textarea name="user.check_remark" rows="3" cols="20">
-	               <s:property value="user.check_remark"/>
+	                 <s:property value="user.check_remark"/>
 					</textarea>拒绝理由，同意理由
                 </td>
             </tr>	 

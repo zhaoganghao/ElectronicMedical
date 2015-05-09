@@ -12,6 +12,7 @@ import cn.emedical.base.BaseAction;
 import cn.emedical.base.bean.PageView;
 import cn.emedical.bean.Identity;
 import cn.emedical.bean.User;
+import cn.emedical.service.IdentityService;
 
 import com.opensymphony.xwork2.ActionContext;
 
@@ -64,7 +65,12 @@ public class UserAction extends BaseAction {
 		copy.setPhone(user.getPhone());
 		copy.setEmail(user.getEmail());
 		copy.setRole(user.getRole());
-		copy.setIdentity(identity);
+		copy.setCheck_remark(user.getCheck_remark());
+		if(identity.getId()!= null){
+			Identity identityCopy = identityService.find(identity.getId());
+			identityCopy.setLicense_pass_date(identity.getLicense_pass_date());
+			copy.setIdentity(identityCopy);
+		}
 		userService.update(copy);
 		return "toeditUI";
 	}

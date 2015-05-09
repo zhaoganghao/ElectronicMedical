@@ -36,5 +36,11 @@
 		<action name="index" class="indexAction" method="index">
 	 		<result name="index">/WEB-INF/web/index.jsp</result>
 	 	</action>
+	 	<action name="register_*" class="registerAction" method="{1}">
+	 		<result name="firstUI">/WEB-INF/web/register_first.jsp</result>
+	 		<result name="secondUI">/WEB-INF/web/register_second.jsp</result>
+	 		<result name="threeUI">/WEB-INF/web/register_three.jsp</result>
+	 		<result name="success">/WEB-INF/web/register_success.jsp</result>
+	 	</action>
 	 </package>
 </struts>

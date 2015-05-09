@@ -11,44 +11,14 @@
 <div class="header">
 
 <!--Logo Part start-->
-<div class="logo-part">
-
-<div class="logo"><a href="index.html"><img src="${pageContext.request.contextPath}/images/web/logo.png" width="356" height="88" alt="" /></a></div>
-
-<div class="Phone-number">
-<h1>电话 : XXXX-XX-XXX</h1>
-
-<div class="find">
-<ul>
-<li><a href="find-doctor.html">寻找医生</a></li>
-<li><a href="request-appointment.html">请求预约</a></li>
-<li style="padding-right:0px; background:none;"><a href="contact-us.html">联系我们</a></li>
-</ul>
-</div>
-
-</div>
-
-</div>
+<%@ include file="/WEB-INF/web/common/logo.jsp"%>
 <!--Logo Part End-->
 
 <!--Menu and Banner Part start-->
 <div class="menu-and-banner">
 
 <!--Menu Part start-->
-<div class="menu-part">
-
-<ul>
-<li><a href="index.html">首页</a></li>
-<li><a href="Care-Services.html">服务</a></li>
-<li><a href="our-doctors.html">医生</a></li>
-<li><a href="patients.html">病人 </a></li>
-<li><a href="visitiors.html">健康信息</a></li>
-<li><a href="health-information.html">平台原理</a></li>
-<li><a href="about-us.html">免费注册</a></li>
-<li style="background:none;padding-right:0px;"><a href="contact-us.html">登录</a></li>
-</ul>
-
-</div>
+<%@ include file="/WEB-INF/web/common/navigate.jsp"%>
 <!--Menu Part End-->
 
 <!--Banner Part start-->
@@ -195,107 +165,4 @@
 </div>
 <!--Content End-->
 
-<!--Footer start-->
-<div id="footer">
-
-<!--Footer Top start-->
-<div class="footer-top">
-
-
-<!--Footer Menu start-->
-<div class="footer-menu">
-
-<!--Service start-->
-<div class="service">
-<h1>Featured Services</h1>
-<div class="service-list">
-<ul>
-<li><a href="#">Bariatric</a></li>
-<li><a href="#">Behavioral Health</a></li>
-<li><a href="#">Cancer</a></li>
-<li><a href="#">Heart </a></li>
-<li><a href="#">Kidney</a></li>
-<li><a href="#">Nasal &amp; Sinus</a></li>
-</ul>
-</div>
-</div>
-<!--Service End-->
-
-
-<!--Patients start-->
-<div class="patients">
-<h1>For Patients</h1>
-<div class="service-list">
-<ul>
-<li><a href="#">Admission</a></li>
-<li><a href="#">About Your Stay</a></li>
-<li><a href="#">Admission Process</a></li>
-<li><a href="#">Health Plans</a></li>
-<li><a href="#">Medical Records</a></li>
-<li><a href="#">Patient and Family </a></li>
-</ul>
-</div>
-</div>
-<!--Patients start-->
-
-<!--Visitors start-->
-<div class="visitors">
-<h1>For Visitors</h1>
-<div class="service-list">
-<ul>
-<li><a href="#">Locations</a></li>
-<li><a href="#">Patient Guide</a></li>
-<li><a href="#">Find a Doctor</a></li>
-<li><a href="#">Visiting </a></li>
-<li><a href="#">Contact </a></li>
-<li><a href="#">Education &amp; Events </a></li>
-</ul>
-</div>
-</div>
-<!--Visitors End-->
-
-<!--Contact start-->
-<div class="contact">
-<h1>Contact Us</h1>
-<p>Bride Street, Sevanth Way,12589 West Virginia. <br />Call : 1800-852-856  <br />
-Mail : info@gamnia.com
-</p>
-<h2><a href="#"><img src="${pageContext.request.contextPath}/images/web/make-cal.png" width="190" height="39" alt="" /></a></h2>
-<h2><a href="request-appointment.html"><img src="${pageContext.request.contextPath}/images/web/appointment.png" width="190" height="39" alt="" /></a></h2>
-</div>
-<!--Contact End-->
-
-</div>
-<!--Footer Menu End-->
-
-</div>
-<!--Footer Top End-->
-
-<!--Footer Bottom start-->
-<div class="footer-bottom">
-
-<div class="copy-right-part">
-<div class="copy-right-text">Copyright 2013 &copy; Gamnia Health Care, Inc. All Rights Reserved.Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></div>
-<div class="social-media">
-<ul>
-<li><a href="#"><img src="${pageContext.request.contextPath}/images/web/facebook.png" width="36" height="33" alt="" /></a></li>
-<li><a href="#"><img src="${pageContext.request.contextPath}/images/web/twitter.png" width="36" height="33" alt="" /></a></li>
-<li><a href="#"><img src="${pageContext.request.contextPath}/images/web/google+.png" width="36" height="33" alt="" /></a></li>
-<li><a href="#"><img src="${pageContext.request.contextPath}/images/web/rss.png" width="36" height="33" alt="" /></a></li>
-</ul>
-</div>
-</div>
-
-</div>
-<!--Footer Bottom End-->
-
-</div>
-<!--Footer End-->
-
-
-</div>
-<!--Site End-->
-
-
-</body>
-</html>
+<%@ include file="/WEB-INF/web/common/foot.jsp"%>

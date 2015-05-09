@@ -23,9 +23,9 @@ public class Identity implements Serializable{
 	private Integer id;
 	private String address;
 	private String gender;
-	@Column(length=64)
+	@Column(length=200)
 	private String doctor_licence_image;
-	@Column(length=64)
+	@Column(length=200)
 	private String ic_image;
 	@Temporal(TemporalType.DATE)
 	private Date license_pass_date;
@@ -37,6 +37,14 @@ public class Identity implements Serializable{
 	private String NRIC_FIN;
 	@OneToOne(mappedBy="identity",cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	private User user;
+	
+	//experience_age experience_image diploma diploma_school academic_certificate_image
+	private Integer experience_age;
+	private String experience_image;
+	private String diploma;
+	private String diploma_school;
+	private String  academic_certificate_image;
+	
 	public Identity(){
 	}
 	
@@ -69,6 +77,46 @@ public class Identity implements Serializable{
 	
 	public String getDoctor_licence_image() {
 		return doctor_licence_image;
+	}
+
+	public Integer getExperience_age() {
+		return experience_age;
+	}
+
+	public void setExperience_age(Integer experience_age) {
+		this.experience_age = experience_age;
+	}
+
+	public String getExperience_image() {
+		return experience_image;
+	}
+
+	public void setExperience_image(String experience_image) {
+		this.experience_image = experience_image;
+	}
+
+	public String getDiploma() {
+		return diploma;
+	}
+
+	public void setDiploma(String diploma) {
+		this.diploma = diploma;
+	}
+
+	public String getDiploma_school() {
+		return diploma_school;
+	}
+
+	public void setDiploma_school(String diploma_school) {
+		this.diploma_school = diploma_school;
+	}
+
+	public String getAcademic_certificate_image() {
+		return academic_certificate_image;
+	}
+
+	public void setAcademic_certificate_image(String academic_certificate_image) {
+		this.academic_certificate_image = academic_certificate_image;
 	}
 
 	public void setDoctor_licence_image(String doctor_licence_image) {
@@ -112,6 +160,7 @@ public class Identity implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

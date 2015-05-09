@@ -29,5 +29,8 @@ public class ServiceTest {
 		
 		System.out.print(user.getIdentity());
 	}
+	@Test
+	public void test3() {
+	}
 
 }
