@@ -28,8 +28,32 @@
 			<result name="tolist" type="redirectAction">user_list</result>
 			<result name="toeditUI" type="redirectAction">user_editUI?user.id=${user.id}</result>
 	 	</action>
+	 	<action name="category_*" class="categoryAction" method="{1}">
+	 		<result name="list">/WEB-INF/admin/category/list.jsp</result>
+			<result name="addUI">/WEB-INF/admin/category/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/admin/category/edit.jsp</result>
+			<result name="tolist" type="redirectAction">category_list</result>
+			<result name="toeditUI" type="redirectAction">category_editUI?category.id=${category.id}</result>
+	 	</action>
+	 	<action name="medicine_*" class="medicineAction" method="{1}">
+	 		<result name="list">/WEB-INF/admin/medicine/list.jsp</result>
+			<result name="addUI">/WEB-INF/admin/medicine/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/admin/medicine/edit.jsp</result>
+			<result name="tolist" type="redirectAction">medicine_list</result>
+			<result name="toeditUI" type="redirectAction">medicine_editUI?medicine.id=${medicine.id}</result>
+	 	</action>
+	 	<action name="medicalRecord_*" class="medicalRecordAction" method="{1}">
+	 		<result name="list">/WEB-INF/admin/medicalrecord/list.jsp</result>
+			<result name="addUI">/WEB-INF/admin/medicalrecord/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/admin/medicalrecord/edit.jsp</result>
+			<result name="tolist" type="redirectAction">medicalrecord_list</result>
+			<result name="toeditUI" type="redirectAction">medicalRecord_editUI?medicalRecord.id=${medicalRecord.id}</result>
+	 	</action>
 	 	<action name="client_*" class="clientAction" method="{1}">
 			<result name="{1}">/WEB-INF/admin/controlcenter/{1}.jsp</result>
+		</action>
+		<action name="admin" class="adminAction" >
+			<result name="index">/WEB-INF/admin/controlcenter/main.jsp</result>
 		</action>
 	 </package>
 	 <package name="web" namespace="/" extends="ElectronicMedical">

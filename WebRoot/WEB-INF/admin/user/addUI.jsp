@@ -2,7 +2,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <body>
 	<s:form action="/control/user_add.action" method="post" >
-	<s:hidden name="method" value="add"/>
 	<table width="98%" border="0" cellspacing="1" cellpadding="3" align="center">
     <tr bgcolor="6f8ac4"> 
       <td colspan="2" ><font color="#FFFFFF">添加用户：</font></td>

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import cn.emedical.service.CategoryService;
 import cn.emedical.service.IdentityService;
 import cn.emedical.service.UserService;
 
@@ -21,6 +22,8 @@ public class BaseAction extends ActionSupport{
 	protected UserService userService;
 	@Resource
 	protected IdentityService identityService;
+	@Resource
+	protected CategoryService categoryService;
 	public int getPage() {
 		return page<1? 1 : page;
 	}

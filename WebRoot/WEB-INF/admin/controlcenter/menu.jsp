@@ -35,7 +35,7 @@
 
 					<TR height=22>
 						<TD style="PADDING-LEFT: 30px"
-							background="${pageContext.request.contextPath}/images/menu_bt.jpg"><A href="<html:rewrite action='/control/center/main'/>" target="main">首页</A>
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg"><A href="<s:url action="admin" namespace="/control"></s:url>" target="main">首页</A>
 						</TD>
 					</TR>
 					<TR height=4>
@@ -65,6 +65,45 @@
 							<A class=menuParent
 							href='<s:url action="user_list" namespace="/control"></s:url>?check=true'
 							target="main">审核认证</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="category_list" namespace="/control"></s:url>'
+							target="main">科室</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="medicine_list" namespace="/control"></s:url>'
+							target="main">药品</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="medicalRecord_list" namespace="/control"></s:url>'
+							target="main">病历</A></TD>
 					</TR>
 					<TR height=4>
 						<TD></TD>

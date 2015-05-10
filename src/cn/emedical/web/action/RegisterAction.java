@@ -1,4 +1,4 @@
-package cn.emedical.action;
+package cn.emedical.web.action;
 
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package cn.emedical.action;
+package cn.emedical.admin.action;
 
 
 import org.springframework.context.annotation.Scope;
@@ -8,10 +8,11 @@ import cn.emedical.base.BaseAction;
 
 @Controller
 @Scope("prototype")
-public class IndexAction extends BaseAction {
-	
-	public String index(){
-		
+public class AdminAction extends BaseAction {
+	@Override
+	public String execute() throws Exception {
+		// TODO Auto-generated method stub
 		return "index";
 	}
+	
 }

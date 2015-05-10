@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,14 +43,16 @@ public class User implements Serializable{
 	private Identity identity;
 	private String check_remark;
 	private String avatar;
+	@ManyToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="category_id")
+	private Category category;
 	public User(){
 	}
 	public User(String username, String password){
 		this.username = username;
 		this.password = password;
 	}
-	public User(String username, String password, String email, String phone
-			) {
+	public User(String username, String password, String email, String phone) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -64,6 +67,13 @@ public class User implements Serializable{
 	}
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	public void setId(Integer id) {
 		this.id = id;

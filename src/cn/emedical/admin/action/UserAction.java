@@ -1,4 +1,4 @@
-package cn.emedical.action;
+package cn.emedical.admin.action;
 
 
 import java.util.ArrayList;
