@@ -35,6 +35,32 @@ public class MedicalRecord implements Serializable{
 	private String result;
 	@Temporal(TemporalType.DATE)
 	private Date ctime = new Date();
+	//是否需要体检
+	private Integer is_check;
+	//体检照片
+	private String check_image;
+	//状态start-->check-->
+	private String status = "start";
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public Integer getIs_check() {
+		return is_check;
+	}
+	public void setIs_check(Integer is_check) {
+		this.is_check = is_check;
+	}
+	public String getCheck_image() {
+		return check_image;
+	}
+	public void setCheck_image(String check_image) {
+		this.check_image = check_image;
+	}
 	public Integer getId() {
 		return id;
 	}

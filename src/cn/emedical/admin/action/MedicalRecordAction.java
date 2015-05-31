@@ -50,7 +50,7 @@ public class MedicalRecordAction extends BaseAction {
 	public String list(){
 		StringBuffer jpql = new StringBuffer();
 		List<Object> params = new ArrayList<Object>();
-		PageView<MedicalRecord> pageView = new PageView<MedicalRecord>(2, this.getPage());
+		PageView<MedicalRecord> pageView = new PageView<MedicalRecord>(10, this.getPage());
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		
 		if ("true".equals(this.getQuery())) {

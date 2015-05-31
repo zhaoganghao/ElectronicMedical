@@ -3,6 +3,7 @@ package cn.emedical.web.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
@@ -10,11 +11,12 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.opensymphony.xwork2.ActionContext;
+
 import cn.emedical.base.BaseAction;
+import cn.emedical.bean.Category;
 import cn.emedical.bean.Identity;
 import cn.emedical.bean.User;
-
-import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
@@ -163,8 +165,14 @@ public class RegisterAction extends BaseAction {
 	public String second(){
 		User copy = userService.find(this.user.getId());
 		copy.setRole(user.getRole());
+		List<Category> categorys = this.categoryService.getAll();
+		ActionContext.getContext().put("categorys", categorys);
 		userService.update(copy);
 		return "threeUI";
+	}
+	public String secondUI(){
+		user = userService.find(this.user.getId());
+		return "secondUI";
 	}
 	public String three() throws IOException{
 		String realpath = ServletActionContext.getServletContext().getRealPath("/upload/images");

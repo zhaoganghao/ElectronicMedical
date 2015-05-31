@@ -20,14 +20,13 @@ public class ServiceTest {
 		User user = new User("zhaogang3", "1123");
 		user.setIdentity(new Identity("123","23","345"));
 		s.save(user);
+		
 	}
 	@Test
 	public void test2() {
 		ApplicationContext c=new ClassPathXmlApplicationContext("beans.xml");
 		UserService s=(UserService) c.getBean("userServiceImpl");
-		User user = s.find(5);
-		
-		System.out.print(user.getIdentity());
+		s.login("admin", "dssd");
 	}
 	@Test
 	public void test3() {

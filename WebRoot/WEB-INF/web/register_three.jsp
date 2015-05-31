@@ -28,12 +28,6 @@ function submitRegister() {
 <%@ include file="/WEB-INF/web/common/navigate.jsp"%>
 <!--Menu Part End-->
 
-<!--Title Part start-->
-<div class="title-part">
-<div class="title-image"><img src="${pageContext.request.contextPath}/images/web/service-image.png" width="1005" height="251" alt="" /></div>
-<div class="title-part-bg">Contact Us <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
-</div>
-<!--Title Part End-->
 
 </div>
 <!--Menu and Banner Part End-->
@@ -102,6 +96,17 @@ function submitRegister() {
 毕业学校证书
 <span><input name="academic_certificate_image" type="file" class="contact-input" />*</span>
 </h2>
+<h2>
+科室
+<span>
+ <select name="user.category.id">
+			 <s:iterator value="#categorys" status="st">
+				 <option value="${id}"  >${name}</option>
+			</s:iterator>
+ </select>
+
+</span>
+</h2>
 </s:if>
 
 <h3><a href="#" onclick="submitRegister();" ><img src="${pageContext.request.contextPath}/images/web/send-now.png" width="91" height="29" alt="" /></a></h3>
@@ -127,3 +132,4 @@ function submitRegister() {
 
 
 <%@ include file="/WEB-INF/web/common/foot.jsp"%>
+<s:debug/>

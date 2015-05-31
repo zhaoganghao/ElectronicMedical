@@ -30,8 +30,8 @@ public class Appointment  implements Serializable{
 	@ManyToOne(cascade={CascadeType.ALL},fetch = FetchType.EAGER)
 	@JoinColumn(name="doctor_id")
 	private User doctor;
-	@Column(length=20)
-	private String status;
+	@Column(length=20,nullable=false)
+	private String status = "pending";
 	@Temporal(TemporalType.DATE)
 	private Date ctime = new Date();
 	@Temporal(TemporalType.DATE)
@@ -39,7 +39,10 @@ public class Appointment  implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date end;
 	@Column(length=500)
-	private String patient_descption;
+	private String description;
+	
+	private Integer is_fee =0;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -64,6 +67,13 @@ public class Appointment  implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public Integer getIs_fee() {
+		return is_fee;
+	}
+	public void setIs_fee(Integer is_fee) {
+		this.is_fee = is_fee;
+	}
 	public Date getCtime() {
 		return ctime;
 	}
@@ -82,11 +92,12 @@ public class Appointment  implements Serializable{
 	public void setEnd(Date end) {
 		this.end = end;
 	}
-	public String getPatient_descption() {
-		return patient_descption;
+	
+	public String getDescription() {
+		return description;
 	}
-	public void setPatient_descption(String patient_descption) {
-		this.patient_descption = patient_descption;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public Appointment() {
 		super();

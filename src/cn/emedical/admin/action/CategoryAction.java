@@ -52,7 +52,7 @@ public class CategoryAction extends BaseAction {
 			jpql.append("o.parent.id = ?");
 			params.add(pid);
 		}
-		PageView<Category> pageView = new PageView<Category>(2, this.getPage());
+		PageView<Category> pageView = new PageView<Category>(10, this.getPage());
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		pageView.setQueryResult(categoryService.getScrollData(pageView.getFirstResult(), 
 				pageView.getMaxresult(), jpql.toString(), params.toArray()));
@@ -60,6 +60,9 @@ public class CategoryAction extends BaseAction {
 		return "list";
 	}
 	public String add(){
+		if(category.getParent().getId() == 0){
+			this.category.setParent(null);
+		}
 		categoryService.save(category);
 		return "tolist";
 	}

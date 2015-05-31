@@ -51,7 +51,7 @@ public class MedicineAction extends BaseAction {
 	public String list(){
 		StringBuffer jpql = new StringBuffer();
 		List<Object> params = new ArrayList<Object>();
-		PageView<Medicine> pageView = new PageView<Medicine>(2, this.getPage());
+		PageView<Medicine> pageView = new PageView<Medicine>(10, this.getPage());
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		
 		if ("true".equals(this.getQuery())) {

@@ -77,7 +77,7 @@ public class UserAction extends BaseAction {
 	public String list(){
 		StringBuffer jpql = new StringBuffer();
 		List<Object> params = new ArrayList<Object>();
-		PageView<User> pageView = new PageView<User>(2, this.getPage());
+		PageView<User> pageView = new PageView<User>(10, this.getPage());
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put("ctime", "desc");
 		if(this.check !=null && this.check.equals("true")){

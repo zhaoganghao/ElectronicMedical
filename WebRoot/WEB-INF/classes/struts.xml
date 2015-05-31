@@ -60,11 +60,44 @@
 		<action name="index" class="indexAction" method="index">
 	 		<result name="index">/WEB-INF/web/index.jsp</result>
 	 	</action>
+	 	<action name="liuchengtu" >
+	 		<result name="success">/WEB-INF/web/liuchengtu.jsp</result>
+	 	</action>
+	 	<action name="health-information" >
+	 		<result name="success">/WEB-INF/web/health-information.jsp</result>
+	 	</action>
+	 	<action name="login_*" class="loginAction" method="{1}"  >
+	 		<result name="index">/WEB-INF/web/login.jsp</result>
+	 		<result name="success" type="redirectAction" >index</result>
+	 		<result name="detail" >/WEB-INF/web/user_detail.jsp</result>
+	 		<result name="shouye" type="redirectAction" >index</result>
+	 	</action>
 	 	<action name="register_*" class="registerAction" method="{1}">
 	 		<result name="firstUI">/WEB-INF/web/register_first.jsp</result>
 	 		<result name="secondUI">/WEB-INF/web/register_second.jsp</result>
 	 		<result name="threeUI">/WEB-INF/web/register_three.jsp</result>
 	 		<result name="success">/WEB-INF/web/register_success.jsp</result>
+	 	</action>
+	 	<action name="doctor_*" class="doctorAction" method="{1}"  >
+	 		<result name="list">/WEB-INF/web/our-doctors.jsp</result>
+	 		<result name="detail">/WEB-INF/web/doctor_detail.jsp</result>
+	 	</action>
+	 	<action name="process_*" class="processAction" method="{1}"  >
+	 		<result name="appointUI">/WEB-INF/web/request-appointment.jsp</result>
+	 		<result name="wait">/WEB-INF/web/wait_check.jsp</result>
+	 		<result name="registration" type="redirectAction" >index</result>
+	 		<result name="pay" >/WEB-INF/web/pay_success.jsp</result>
+	 		<result name="appoint_list" >/WEB-INF/web/appoint_list.jsp</result>
+	 		<result name="edit" type="redirectAction" >process_appointList</result>
+	 		<result name="treatUI">/WEB-INF/web/treat.jsp</result>
+	 		<result name="select_medicine">/WEB-INF/web/medicine_list.jsp</result>
+	 	</action>
+	 	<action name="record_*" class="recordAction" method="{1}"  >
+	 		<result name="list">/WEB-INF/web/record_list.jsp</result>
+	 	</action>
+	 	<action name="reviews_*" class="reviewsAction" method="{1}"  >
+	 		<result name="addUI">/WEB-INF/web/reviews_add.jsp</result>
+	 		<result name="success">/WEB-INF/web/reviews_success.jsp</result>
 	 	</action>
 	 </package>
 </struts>

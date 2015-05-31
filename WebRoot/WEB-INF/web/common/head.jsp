@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <!-- Title and Meta Tags -->
-<title>Gamnia Health Care</title>
+<title>在线医疗</title>
 <meta content=""  name="Description" />
 <meta content="" name="Keywords" />
 

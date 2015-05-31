@@ -51,7 +51,20 @@
 							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
 							<A class=menuParent
 							href='<s:url action="user_list" namespace="/control"></s:url>'
-							target="main">用户管理</A></TD>
+							target="main">医生管理</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="user_list" namespace="/control"></s:url>'
+							target="main">病人管理</A></TD>
 					</TR>
 					<TR height=4>
 						<TD></TD>
@@ -104,6 +117,45 @@
 							<A class=menuParent
 							href='<s:url action="medicalRecord_list" namespace="/control"></s:url>'
 							target="main">病历</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="medicalRecord_list" namespace="/control"></s:url>'
+							target="main">权限管理</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="medicalRecord_list" namespace="/control"></s:url>'
+							target="main">宣传模块</A></TD>
+					</TR>
+					<TR height=4>
+						<TD></TD>
+					</TR>
+				</TABLE>
+				<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
+
+					<TR height=22>
+						<TD style="PADDING-LEFT: 30px"
+							background="${pageContext.request.contextPath}/images/menu_bt.jpg">
+							<A class=menuParent
+							href='<s:url action="medicalRecord_list" namespace="/control"></s:url>'
+							target="main">系统设置</A></TD>
 					</TR>
 					<TR height=4>
 						<TD></TD>

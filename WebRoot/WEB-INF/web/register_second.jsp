@@ -29,13 +29,6 @@ function selectRole(role) {
 <%@ include file="/WEB-INF/web/common/navigate.jsp"%>
 <!--Menu Part End-->
 
-<!--Title Part start-->
-<div class="title-part">
-<div class="title-image"><img src="${pageContext.request.contextPath}/images/web/service-image.png" width="1005" height="251" alt="" /></div>
-<div class="title-part-bg">Contact Us <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span></div>
-</div>
-<!--Title Part End-->
-
 </div>
 <!--Menu and Banner Part End-->
 
